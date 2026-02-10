@@ -1,0 +1,116 @@
+/* ===== TABLEVIEW – estilo flat claro ===== */
+.table-view {
+    -fx-background-color: #E9EDF2;            /* tom claro derivado */
+    -fx-background-radius: 8;
+    -fx-border-color: #C9D3DE;                /* linha da moldura suave */
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 0;
+
+    /* grelha delicada */
+    -fx-control-inner-background: white;
+    -fx-table-cell-border-color: #D6DEE8;
+    -fx-table-header-border-color: #5B697A;   /* mais escuro que #707C8E */
+}
+
+/* Cabeçalho */
+.table-view .column-header-background {
+    -fx-background-color: #707C8E;            /* cinzento-azulado */
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 6;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 0 8;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* Células */
+.table-cell {
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #021E37;                    /* texto bem legível */
+    -fx-background-color: transparent;
+}
+
+/* Sem listras: ambas as linhas iguais (branco) */
+.table-row-cell:even,
+.table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+/* Hover e selecção discretos */
+.table-row-cell:hover {
+    -fx-background-color: rgba(17,80,137,0.08);   /* #115089 a 8% */
+}
+.table-row-cell:selected {
+    -fx-background-color: rgba(17,80,137,0.18);   /* #115089 a 18% */
+}
+.table-row-cell:selected .table-cell,
+.table-row-cell:selected .text {
+    -fx-text-fill: #021E37;  /* mantém texto escuro ao selecionar */
+    -fx-fill: #021E37;
+}
+
+/* Filler (zona vazia) igual ao fundo claro */
+.table-view .filler {
+    -fx-background-color: #E9EDF2;
+}
+
+/* Scrollbars discretas */
+.table-view .scroll-bar:horizontal,
+.table-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-width: 10;
+    -fx-pref-height: 10;
+}
+.table-view .thumb {
+    -fx-background-color: #C9D3DE;
+    -fx-background-radius: 5;
+}
+
+/* ===== LISTVIEW para combinar ===== */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #C9D3DE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6;
+    -fx-control-inner-background: white;
+}
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #021E37;
+    -fx-font-size: 13px;
+    -fx-padding: 8 12;
+}
+.list-cell:hover {
+    -fx-background-color: rgba(17,80,137,0.08);
+}
+.list-cell:selected {
+    -fx-background-color: rgba(17,80,137,0.18);
+    -fx-text-fill: #021E37;
+}
+
+/* Botão "Editar" dentro da tabela (opcional) */
+.table-view .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #021E37;
+    -fx-border-color: #707C8E;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 4 8;
+}
+.table-view .button:hover {
+    -fx-background-color: rgba(17,80,137,0.10);
+    -fx-border-color: #115089;
+}
+.table-view .button:pressed {
+    -fx-background-color: rgba(17,80,137,0.18);
+}

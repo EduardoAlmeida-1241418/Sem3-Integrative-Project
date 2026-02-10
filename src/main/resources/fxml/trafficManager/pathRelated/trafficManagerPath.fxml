@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.trafficManager.pathRelated.TrafficManagerPathsGUI">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="118.0" prefHeight="79.0" prefWidth="964.0" text="Path" textFill="#00162a">
+         <font>
+            <Font name="Britannic Bold" size="64.0" />
+         </font>
+      </Label>
+      <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logos/Logo.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="993.0" prefHeight="91.0" prefWidth="287.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="30.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons/avatar_hello_login.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="180.0" layoutY="8.0" prefHeight="60.0" prefWidth="103.0" />
+                  <Label layoutX="102.0" layoutY="44.0" prefHeight="28.0" prefWidth="181.0" text="Traffic Manager" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="19.0" text="Hello!" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="typeButton" layoutX="513.0" layoutY="545.0" mnemonicParsing="false" onAction="#createPathManualOnAction" prefHeight="40.0" prefWidth="182.0" text="Create Manual Path">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="179.0" fitWidth="195.0" layoutX="506.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/icons/path%20manual.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="196.0" fitWidth="215.0" layoutX="918.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/icons/path%20automatic.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="typeButton" layoutX="951.0" layoutY="545.0" mnemonicParsing="false" onAction="#createPathAutomaticOnAction" prefHeight="40.0" prefWidth="182.0" text="Create Automatic Path">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </Button>
+      <Text layoutX="450.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Create Path Manually option allows you to manually define the path that the train will follow, choosing the sequence of stations along the route. This feature is useful when you need to directly control the route or when automatic planning is not available." textAlignment="CENTER" wrappingWidth="308.89007568359375">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="888.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Create Path Automatic option allows the system to automatically calculate the best route between the station of origin and the destination station. The route is generated based on the available rail network, facilitating planning and reducing manual effort on the part of the user." textAlignment="CENTER" wrappingWidth="308.89007568359375">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="-1.0" layoutY="82.0" prefHeight="566.0" prefWidth="316.0" style="-fx-background-color: #021E37;">
+         <children>
+            <VBox layoutY="8.0" prefHeight="562.0" prefWidth="319.0">
+               <children>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home11" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/Icon_Home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home21" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="Paths              " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="60.0" fitWidth="56.0" layoutX="19.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/path.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home31" alignment="CENTER" layoutX="9.0" layoutY="-1.0" mnemonicParsing="false" onAction="#assignOnAction" prefHeight="76.0" prefWidth="303.0" style="-fx-background-color: transparent;" text="Assign              " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="28.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/assign.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="searchStationButton1" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#schedulerOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="Scheduler       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="29.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/scheduler.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home41" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#LogsOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="       NOS                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="33.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/NOS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="1.0" prefWidth="317.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Button fx:id="Card12111" alignment="CENTER" layoutX="14.0" layoutY="-21.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="303.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="#ffffff00">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="319.0" prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="logoutButton1" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Logout                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/Icon_Logout.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../../../css/table.css" />
+      <URL value="@../../../css/buttons.css" />
+   </stylesheets>
+</AnchorPane>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.picker.PickingPathGUI">
+    <stylesheets>
+        <URL value="@../../css/table.css" />
+    </stylesheets>
+    <children>
+        <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+            <children>
+                <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/logos/Logo.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane layoutX="993.0" prefHeight="91.0" prefWidth="287.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="107.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/icons/avatar_hello_login.png" />
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="180.0" layoutY="8.0" prefHeight="60.0" prefWidth="103.0" />
+                        <Label layoutX="179.0" layoutY="44.0" text="Picker" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="179.0" layoutY="19.0" text="Hello!" textFill="WHITE">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="91.0" prefHeight="561.0" prefWidth="315.0" style="-fx-background-color: #021E37;">
+            <children>
+                <VBox prefHeight="530.0" prefWidth="317.0">
+                    <children>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #021E37;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="homeButton" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Home.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="pickingPathButton" alignment="CENTER" layoutX="-5.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="319.0" style="-fx-background-color: transparent;" text="Picking Path" textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_path.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="269.0" prefWidth="317.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <AnchorPane layoutX="1.0" prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #021E37;">
+                                    <children>
+                                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Button alignment="CENTER" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleWmsLogButton" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        WMS                       " textFill="WHITE">
+                                            <font>
+                                                <Font size="19.0" />
+                                            </font>
+                                        </Button>
+                                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="31.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../images/icons/WMS.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                            </children></AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="319.0" prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="logoutButton" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Logout                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Logout.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+          <Label alignment="CENTER" layoutX="320.0" layoutY="160.0" prefHeight="56.0" prefWidth="960.0" text="Picking Path" textFill="#021e37">
+              <font>
+                  <Font name="Britannic Bold" size="64.0" />
+              </font>
+          </Label>
+        <VBox layoutX="401.0" layoutY="228.0" prefHeight="394.0" prefWidth="400.0">
+            <children>
+                <TableView fx:id="pickingPathTable" prefHeight="252.0" prefWidth="471.0" style="-fx-border-color: #021E37;">
+                    <columns>
+                        <TableColumn fx:id="pickingPlanIDTableColumn" prefWidth="188.78997802734375" resizable="false" text="Picking Plan ID" />
+                        <TableColumn fx:id="trolleyModelTableColumn" prefWidth="210.4000244140625" resizable="false" text="Trolley Model" />
+                    </columns>
+                </TableView>
+                <AnchorPane prefHeight="23.0" prefWidth="414.0">
+               <children>
+                  <Label fx:id="errorLabel" layoutX="6.0" layoutY="2.0" textFill="RED" />
+               </children></AnchorPane>
+                <Button fx:id="selectButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selectButtonOnAction" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #115089;" text="Select " textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+            <padding>
+                <Insets top="50.0" />
+            </padding>
+        </VBox>
+      <AnchorPane layoutX="886.0" layoutY="275.0" prefHeight="257.0" prefWidth="308.0" style="-fx-background-color: #707C8E; -fx-border-color: #021E37;">
+         <children>
+            <GridPane layoutX="38.0" layoutY="76.0" prefHeight="157.0" prefWidth="231.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.8480224609375" minWidth="10.0" prefWidth="138.087158203125" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.3187255859375" minWidth="10.0" prefWidth="92.912841796875" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="93.666748046875" minHeight="10.0" prefHeight="78.39998779296874" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="87.42718505859375" minHeight="10.0" prefHeight="79.20001220703125" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="20.0" prefWidth="150.0" text="Total Weight:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="139.0" text="Trolley Quantity:" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalWeightLabel" alignment="CENTER" prefHeight="131.0" prefWidth="94.0" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="trolleyQuantityLabel" alignment="CENTER" prefHeight="157.0" prefWidth="94.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Label alignment="CENTER" layoutY="26.0" prefHeight="40.0" prefWidth="308.0" text="Picking Plan Info" textFill="WHITE">
+               <font>
+                  <Font name="Britannic Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

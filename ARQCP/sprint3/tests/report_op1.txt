@@ -1,0 +1,2 @@
+op1: ASSIGN_TRACK track=1 train=10
+op1: EMERGENCY STOP: no free tracks available

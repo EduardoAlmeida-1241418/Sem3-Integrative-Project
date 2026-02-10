@@ -1,0 +1,31 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+title Authentication Class Diagram
+
+class User {
+  -id : int
+  -email : String
+  -password : String
+  -active : boolean
+  -roleList : ArrayList<String>
+  +getEmail() : String
+  +getRoleList() : ArrayList<String>
+  +isActive() : boolean
+  +correctPassword(pass : String) : boolean
+}
+
+class UserRepository {
+  -users : Map<String, User>
+  +add(user : User) : void
+  +findByEmail(email : String) : User
+  +remove(email : String) : void
+  +exists(email : String) : boolean
+  +findAll() : Collection<User>
+  +clear() : void
+  +count() : int
+}
+
+UserRepository "1" --> "*" User : manages
+
+@enduml

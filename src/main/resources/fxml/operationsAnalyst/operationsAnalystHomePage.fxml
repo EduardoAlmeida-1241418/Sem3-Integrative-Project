@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.operationsAnalyst.OperationsAnalystHomePageGUI">
+    <children>
+        <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+            <children>
+                <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/logos/Logo.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane layoutX="993.0" prefHeight="91.0" prefWidth="287.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="24.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/icons/avatar_hello_login.png" />
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="180.0" layoutY="8.0" prefHeight="60.0" prefWidth="103.0" />
+                        <Label layoutX="93.0" layoutY="44.0" text="Operations Analyst" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="93.0" layoutY="19.0" text="Hello!" textFill="WHITE">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="91.0" prefHeight="561.0" prefWidth="315.0" style="-fx-background-color: #021E37;">
+            <children>
+                <VBox prefHeight="530.0" prefWidth="317.0">
+                    <children>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="homeButton" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Home.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #021E37;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="calculateMaxFlowButton" alignment="CENTER" layoutX="-5.0" mnemonicParsing="false" onAction="#calculateMaxFlowOnAction" prefHeight="76.0" prefWidth="319.0" style="-fx-background-color: transparent;" text="        Calculate Max Flow" textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_path.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="339.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home41" alignment="CENTER" layoutX="-7.0" layoutY="2.0" mnemonicParsing="false" onAction="#NOSButtonOnAction" prefHeight="76.0" prefWidth="338.0" style="-fx-background-color: transparent;" text="  NOS                   " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/NOS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                        <AnchorPane prefHeight="269.0" prefWidth="317.0" style="-fx-border-color: #484848;" />
+                        <AnchorPane layoutX="10.0" layoutY="319.0" prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="logoutButton" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Logout                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Logout.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <VBox layoutX="403.0" layoutY="160.0" prefHeight="441.0" prefWidth="761.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="792.0" text="Operations Analyst" textFill="#00162a">
+                    <font>
+                        <Font name="Britannic Bold" size="64.0" />
+                    </font>
+                </Label>
+                <AnchorPane prefHeight="54.0" prefWidth="790.0" />
+                <Label alignment="TOP_LEFT" lineSpacing="8.0" prefHeight="118.0" prefWidth="790.0" text="This analysis calculates the maximum possible throughput between two selected stations, taking into account the capacity limits of each railway segment. It represents the theoretical upper bound on the number of trains that can be routed through the corridor within a given time period." textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <AnchorPane prefHeight="73.0" prefWidth="792.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="2.0" layoutY="3.0" lineSpacing="4.0" prefHeight="59.0" prefWidth="790.0" text="By identifying this maximum flow, planners can validate operational schedules, detect capacity bottlenecks, and better understand which parts of the network may require prioritised upgrades or optimisation." textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+                <Label alignment="TOP_LEFT" graphicTextGap="5.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="790.0" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

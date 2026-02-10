@@ -1,0 +1,16 @@
+digraph railway {
+  layout=neato;
+  overlap=prism;
+  sep=1.2;
+  splines=true;
+  outputorder=edgesfirst;
+  node [shape=ellipse, fontsize=10, margin="0.25,0.15"];
+  edge [fontsize=9, penwidth=2.0, arrowsize=0.8];
+  "447" [label="GENTBRUGGE"];
+  "822" [label="MERELBEKE"];
+  "455" [label="GENT-ST-P"];
+  "2089" [label="ANDERLECHT"];
+  "455" -> "2089" [label="27.04", color="black", fontcolor="black", len=4.0];
+  "447" -> "822" [label="-4.58", color="red", fontcolor="red", len=4.0];
+  "822" -> "455" [label="9.08", color="black", fontcolor="black", len=4.0];
+}

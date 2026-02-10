@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.admin.ChooseUserGUI">
+    <stylesheets>
+        <URL value="@../../css/table.css" />
+    </stylesheets>
+    <children>
+        <AnchorPane prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+            <children>
+                <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/logos/Logo.png" />
+                    </image></ImageView>
+                <AnchorPane layoutX="1063.0" layoutY="11.0" prefHeight="76.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="29.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/icons/avatar_hello_login.png" />
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="100.0" layoutY="8.0" prefHeight="60.0" prefWidth="100.0">
+                            <children>
+                                <Label text="Hello!" textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Admin" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="19.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Button layoutX="-1.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="203.0" style="-fx-background-color: transparent;" />
+                    </children></AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="91.0" prefHeight="561.0" prefWidth="315.0" style="-fx-background-color: #021E37;">
+            <children>
+                <VBox prefHeight="561.0" prefWidth="316.0">
+                    <children>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #021E37;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_Home.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="home" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="      Home                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/team.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="users" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="      Users                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="281.0" prefWidth="316.0" />
+                        <AnchorPane prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="logoutButton" alignment="CENTER" layoutX="-1.0" layoutY="3.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="          Logout                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Logout.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+      <TableView fx:id="usersTableView" layoutX="371.0" layoutY="213.0" prefHeight="392.0" prefWidth="866.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="110.39999389648438" resizable="false" text="ID" />
+          <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="411.99993896484375" resizable="false" text="Email" />
+            <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="167.2000732421875" resizable="false" text="Status" />
+            <TableColumn fx:id="colEdit" minWidth="0.0" prefWidth="175.20004882812498" text="Edit" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="315.0" layoutY="110.0" prefHeight="86.0" prefWidth="966.0" text="Users" textFill="#00162a">
+         <font>
+            <Font name="Britannic Bold" size="64.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

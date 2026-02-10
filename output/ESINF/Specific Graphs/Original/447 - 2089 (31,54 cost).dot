@@ -1,0 +1,13 @@
+digraph railway {
+  layout=neato;
+  overlap=false;
+  splines=false;
+  node [shape=circle];
+  "447" [label="GENTBRUGGE", pos="12834.000000,659365.750000!"];
+  "822" [label="MERELBEKE", pos="12898.650000,659215.700000!"];
+  "455" [label="GENT-ST-P", pos="13771.250000,658528.700000!"];
+  "2089" [label="ANDERLECHT", pos="17505.100000,656427.450000!"];
+  "455" -> "2089" [label="27.04", color="black", fontcolor="black", penwidth=3.0];
+  "447" -> "822" [label="-4.58", color="red", fontcolor="red", penwidth=3.0];
+  "822" -> "455" [label="9.08", color="black", fontcolor="black", penwidth=3.0];
+}

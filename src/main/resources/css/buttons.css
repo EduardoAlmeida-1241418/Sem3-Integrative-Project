@@ -1,0 +1,183 @@
+#typeButton {
+    -fx-background-color: #0b5fa4;   /* azul escuro elegante */
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-pref-height: 36;
+
+    /* sombra leve para dar profundidade */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 6, 0, 0, 2);
+}
+
+/* Hover */
+#typeButton:hover {
+    -fx-background-color: #0d6fbd;   /* azul mais claro */
+}
+
+/* Pressed */
+#typeButton:pressed {
+    -fx-background-color: #094b82;
+    -fx-translate-y: 1px;             /* pequeno efeito de clique */
+}
+
+
+/* --- DatePicker base --- */
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: #1b3b6f;
+    -fx-border-width: 1.8px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 2 6;
+    -fx-pref-height: 38;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1b3b6f;
+}
+
+/* Hover do campo principal */
+.date-picker:hover {
+    -fx-border-color: #25508f;
+}
+
+/* Foco (quando clicado) */
+.date-picker:focused {
+    -fx-border-color: #0b5fa4;
+}
+
+/* --- Seta minimalista --- */
+.date-picker .arrow-button {
+    -fx-padding: 4 4 4 4;
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #1b3b6f;
+}
+
+/* Hover da seta */
+.date-picker .arrow-button:hover .arrow {
+    -fx-background-color: #0b5fa4;
+}
+
+/* --- Lista dropdown --- */
+.date-picker .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #0b5fa4;
+    -fx-border-width: 1.4px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+
+}
+
+/* Cada item da lista */
+.date-picker .list-cell {
+    -fx-padding: 4 8;  /* antes era 8 10 */
+    -fx-font-size: 13px;
+    -fx-min-height: 24;
+    -fx-pref-height: 24;
+
+}
+
+/* Item selecionado */
+.date-picker .list-cell:selected {
+    -fx-background-color: transparent; /* azul suave */
+    -fx-text-fill: #0b5fa4;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-border-radius: 6;
+    -fx-prompt-text-fill: #1b3b6f;
+}
+
+
+/* --- Spinner base --- */
+.spinner {
+    -fx-background-color: transparent;
+    -fx-border-color: #1b3b6f;
+    -fx-border-width: 1.8px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 2 6;
+    -fx-pref-height: 38;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1b3b6f;
+}
+
+/* Hover do campo principal */
+.spinner:hover {
+    -fx-border-color: #25508f; /* azul um pouco mais claro */
+}
+
+/* Foco (quando clicado) */
+.spinner:focused {
+    -fx-border-color: #0b5fa4;  /* azul do botão Create */
+}
+
+/* --- Seta minimalista --- */
+.spinner .arrow-button {
+    -fx-padding: 0 4 0 0; /* mais compacto */
+}
+
+.spinner .arrow {
+    -fx-background-color: #1b3b6f;
+    -fx-shape: "M 3 0 L 6 5 L 0 5 Z"; /* seta menor */
+}
+
+/* Hover da seta */
+.spinner .arrow-button:hover .arrow {
+    -fx-background-color: #0b5fa4;
+}
+
+/* --- Lista dropdown --- */
+.spinner .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #0b5fa4;
+    -fx-border-width: 1.4px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+
+}
+
+/* Cada item da lista */
+.spinner .list-cell {
+    -fx-padding: 4 8;  /* antes era 8 10 */
+    -fx-font-size: 13px;
+    -fx-min-height: 24;
+    -fx-pref-height: 24;
+
+}
+
+/* Item selecionado */
+.spinner .list-cell:selected {
+    -fx-background-color: transparent; /* azul suave */
+    -fx-text-fill: #0b5fa4;
+}
+
+/* Remove fundo branco geral */
+.spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-border-radius: 6;
+}
+
+/* Remove fundo branco dos botões ↑ ↓ */
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 6;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: #1b3b6f;
+}
+

@@ -1,0 +1,25 @@
+.popup-root {
+    -fx-background-color: #0A2342;
+    -fx-border-color: #133B5C;
+    -fx-border-width: 2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.popup-title {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.popup-subtitle {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-text-fill: #D9E6F2;
+}
+
+.popup-progress {
+    -fx-accent: #64C8FF;
+    -fx-control-inner-background: #0A2342;
+}

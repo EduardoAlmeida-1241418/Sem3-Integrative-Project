@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.maintenancePlanner.MaintenancePlannerHomePageGUI">
+    <children>
+        <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+            <children>
+                <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/logos/Logo.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane layoutX="972.0" layoutY="7.0" prefHeight="76.0" prefWidth="272.0">
+                    <children>
+                        <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="27.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/icons/avatar_hello_login.png" />
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="100.0" layoutY="8.0" prefHeight="60.0" prefWidth="159.0" />
+                        <Label layoutX="98.0" layoutY="37.0" text="Maintenance Planner" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="98.0" layoutY="12.0" text="Hello!" textFill="WHITE">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="91.0" prefHeight="561.0" prefWidth="315.0" style="-fx-background-color: #021E37;">
+            <children>
+                <VBox prefHeight="392.0" prefWidth="315.0">
+                    <children>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button alignment="CENTER" layoutX="1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="272.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Home.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#hubAnalysisButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="    Hub Analysis" textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/hub_analysis.png" />
+                           </image>
+                        </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleNOSLogsButton" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="             NOS                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="31.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/NOS.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Button fx:id="Card1211" alignment="CENTER" layoutX="-1.0" mnemonicParsing="false" prefHeight="184.0" prefWidth="317.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="#ffffff00">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="319.0" prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                            <children>
+                                <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="logoutButton" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Logout                       " textFill="WHITE">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Button>
+                                <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons/Icon_Logout.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="380.0" layoutY="372.0" prefHeight="32.0" prefWidth="764.0" />
+        <AnchorPane layoutX="380.0" layoutY="479.0" prefHeight="52.0" prefWidth="764.0" />
+        <VBox layoutX="413.0" layoutY="159.0" prefHeight="441.0" prefWidth="761.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="792.0" text="Maintenance Planner" textFill="#00162a">
+                    <font>
+                        <Font name="Britannic Bold" size="64.0" />
+                    </font>
+                </Label>
+                <AnchorPane prefHeight="14.0" prefWidth="761.0" />
+                <Label alignment="TOP_LEFT" lineSpacing="8.0" prefHeight="125.0" prefWidth="761.0" text="The Maintenance Planner is responsible for analysing the railway network in order to identify critical infrastructure elements that require maintenance, monitoring, or prioritised intervention. This role focuses on evaluating stations, lines, and connections based on their operational importance, usage intensity, and vulnerability within the network." wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <AnchorPane prefHeight="15.0" prefWidth="761.0" />
+                <Label alignment="TOP_LEFT" lineSpacing="8.0" prefHeight="140.0" prefWidth="761.0" text="By using the system, the Maintenance Planner assesses hub stations, chokepoints, and highly central connections whose failure would have a significant impact on network performance. Centrality metrics and capacity-related indicators support data-driven decisions regarding preventive maintenance, upgrade prioritisation, and risk mitigation." wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            <Label alignment="TOP_LEFT" lineSpacing="8.0" prefHeight="65.0" prefWidth="761.0" text="Their work enables a proactive maintenance strategy, improving network reliability, reducing service disruptions, and ensuring the long-term sustainability and robustness of the railway infrastructure." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

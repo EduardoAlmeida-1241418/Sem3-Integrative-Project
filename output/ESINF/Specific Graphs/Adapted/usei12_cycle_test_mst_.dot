@@ -1,0 +1,28 @@
+graph mst {
+  layout=neato;
+  overlap=prism;
+  sep=1.2;
+  splines=true;
+  outputorder=edgesfirst;
+  node [shape=ellipse, fontsize=10, margin="0.25,0.15"];
+  edge [fontsize=9, penwidth=2.0];
+  "A" [label="A"];
+  "B" [label="B"];
+  "C" [label="C"];
+  "D" [label="D"];
+  "E" [label="E"];
+  "F" [label="F"];
+  "G" [label="G"];
+  "H" [label="H"];
+  "I" [label="I"];
+  "J" [label="J"];
+  "B" -- "C" [label="2.00 km", len=4.0];
+  "F" -- "G" [label="2.00 km", len=4.0];
+  "I" -- "J" [label="1.00 km", len=4.0];
+  "C" -- "E" [label="2.00 km", len=4.0];
+  "H" -- "I" [label="3.00 km", len=4.0];
+  "A" -- "B" [label="4.00 km", len=4.0];
+  "G" -- "H" [label="3.00 km", len=4.0];
+  "D" -- "F" [label="5.00 km", len=4.0];
+  "D" -- "E" [label="1.00 km", len=4.0];
+}

@@ -1,0 +1,574 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide methods
+left to right direction
+
+title Domain Model
+
+'======================================================================
+'   BLOCO A — Infraestrutura
+'======================================================================
+class RailLine {
+    id
+}
+
+class RailLineSegment {
+    maximumWeight
+    speedLimit
+    length
+    isElectrified
+    gauge
+}
+
+class Siding{
+    position
+    length
+}
+
+enum TrackType {
+    SINGLE_TRACK
+    DOUBLE_TRACK
+}
+
+
+class RailLineOwner {
+    name
+}
+
+class TrackGauge {
+  size
+}
+
+RailLineSegment "1" -- "*" Siding : has >
+RailLineSegment "1" -down- "1" TrackGauge : has a >
+RailLineSegment "1" -- "1" TrackType : has type >
+RailLine "1" -- "1..*" RailLineSegment : composed of >
+RailLine "1" -up- "1" RailLineOwner : owned by >
+RailLine "1" -- "2..*" Facility : connects >
+
+note left of RailLine
+  A rail line has a single owner, responsible for
+  maintenance on all its segments.
+  However, the line may be used by trains of other
+  railway operators.
+end note
+
+
+note right of RailLineSegment
+  • If RailLineSegment = "single", trains can only cross:
+        – at Stations (segment endpoints)
+        – or at Sidings along the segment (if hasSiding = true)
+  • If RailLineSegment = "double", simultaneous train movement is allowed
+end note
+
+
+'======================================================================
+'   BLOCO B — Endpoints
+'======================================================================
+class Facility {
+    name
+
+}
+
+enum FacilityType {
+    STATION
+    TERMINAL
+    FREIGHT_YARD
+    INTERMODAL_TERMINAL
+}
+
+Facility "1" -left- "1" FacilityType : has type >
+
+
+note left of Facility
+  • Facilities include stations, terminals, and freight yards.
+  • Intermodal terminals allow transfer between trains, trucks, and ships for 'door-to-door' logistics.
+end note
+
+'======================================================================
+'   Position Related
+'======================================================================
+
+interface Position{
+
+}
+
+note left of Position
+    A position can be any part of the Railway System
+    Can Assume the role of a station, a railway line
+    segment or even a Siding.
+    Its used to describe the start and end location
+    of an Schedule_Event
+end note
+
+Position "1" -- "0..1" Facility : "can be of type >"
+Position "1" -- "0..1" Siding : "can be of type >"
+Position "1" -- "0..1" RailLineSegment : "can be of type >"
+
+'======================================================================
+'   BLOCO C — Operações (Warehouse)
+'======================================================================
+class Building {
+    name
+}
+
+enum BuildingType {
+    WAREHOUSE
+    REFRIGERATED
+    GRAIN_SILO
+}
+
+class Aisle {
+    aisleNumber
+}
+
+class Bay {
+    bayNumber
+    capacityBoxes
+}
+
+class Item {
+    sku
+    name
+    category
+    unit
+    unitVolume
+    unitWeight
+}
+
+class Box {
+    sku
+    quantity
+    expiryDate
+    receivedAt
+}
+
+Facility "1" -down- "0..*" Building : includes >
+Building "1" -down- "0..*" Aisle : has >
+Building "1" -right- "1" BuildingType : has type >
+
+Aisle "1" -- "*" Bay : contains >
+Bay "1" -down- "0..*" Box : stores >
+Box "1" -right- "1" Item : represents >
+Return "1" -- "1..*" Item : has >
+
+
+note right of Building
+  Only buildings of type WAREHOUSE
+  contain aisles and bays for storage
+end note
+
+note left of Box
+   • If expiryDate = null  → treat as FIFO (order by receivedAt asc)
+   • If expiryDate ≠ null  → FEFO (order by expiryDate asc, then receivedAt asc)
+end note
+
+
+'======================================================================
+'   Rolling Stock (Locomotive / Wagon / Train)
+'======================================================================
+
+
+class TrainOperator {
+  name
+}
+
+class Locomotive {
+  id
+  yearOfEntryInService
+}
+
+class LocomotiveModel {
+  id
+  make
+  modelName
+  power
+  acceleration
+  maximumWeight
+  numberOfBogies
+  fuelCapacity
+  voltage
+  frequency
+  gauge
+}
+
+enum FuelType {
+    DIESEL
+    ELECTRIC
+}
+
+class Wagon {
+    id
+    yearOfEntryInService
+}
+
+class WagonModel {
+    id
+    ModelName
+    make
+    payload
+    volumeCapacity
+    maximumWeight
+    numberOfBogies
+}
+
+
+enum WagonType {
+  BOXCAR
+  FLATCAR
+  TANKCAR
+  HOPPERCAR
+  REFRIGERATEDCAR
+}
+
+class Dimensions{
+    Length
+    Width
+    Height
+    WeightTare
+}
+
+enum TankCarSubtype {
+  CHEMICAL
+  MINERAL_OIL
+  PRESSURE_GAS
+}
+
+enum CargoType {
+  GENERAL_GOODS
+  CONTAINERS
+  VEHICLES
+  MACHINERY
+  LIQUIDS
+  CHEMICALS
+  FUEL
+  COAL
+  GRAINS
+  MINERALS
+  PERISHABLE_GOODS
+}
+
+class BogieType{
+    id
+    ModelName
+    WheelCount
+}
+
+Wagon "1" -- "1" Facility : is parked there >
+Locomotive "1" -- "1" Facility : is parked there >
+
+TrainOperator "1" -down- "*" Locomotive : owns >
+TrainOperator "1" -down- "*" Wagon : owns >
+
+Locomotive "1..*" -right- "1" LocomotiveModel : has type>
+LocomotiveModel "1" -- "1" Dimensions : has >
+LocomotiveModel "1" -- "1" FuelType : has type >
+LocomotiveModel "1..*" -down- "1..*" TrackGauge : has gauge >
+LocomotiveModel "1" -- "1" BogieType : has bogie type >
+
+WagonModel "1" -- "1" BogieType : has bogie type >
+Wagon "*" -- "1" WagonModel : is of model >
+WagonType "1" -- "1..*" CargoType : supports >
+WagonModel "1" -- "1" WagonType : has type >
+WagonModel "1" -- "1" TrackGauge : has gauge >
+WagonModel "1" -- "1" Dimensions : has dimensions >
+WagonModel "0..1" -- "1" TankCarSubtype : tank subtype >
+
+note left of WagonType
+Each WagonType supports specific kinds of cargo (CargoType):
+   • Flatcar → Containers, Vehicles, Machinery
+   • Boxcar → GeneralGoods
+   • TankCar → Liquids, fuel,  Chemicals, MineralOils, Gaseous
+   • HopperCar → Minerals (coal, grains)
+   • RefrigeratedCar → Perishables
+end note
+
+note top of LocomotiveModel
+   • fuelType=DIESEL  → must have DieselModelSpec (only)
+   • fuelType=ELECTRIC → must have ElectricModelSpec (only)
+end note
+
+'======================================================================
+'   Train Related
+'======================================================================
+
+class Train{
+    id
+    scheduledDepartureDate
+    dispatchedState
+}
+
+Train "1" -- "1..*" Locomotive : has >
+Train "1" -- "1" Route : has >
+
+TrainOperator "1" -- "*" Train : owns >
+
+
+'======================================================================
+'   Schedule Related
+'======================================================================
+
+class General_Schedule{
+    id
+}
+
+
+class Schedule_Event{
+    Start_Date
+    End_Date
+
+}
+
+enum Schedule_Event_Type{
+    MOVEMENT
+    WAITING_IN_SIDING
+    WAITING_IN_STATION
+    WAITING_FOR_ASSEMBLE
+    LOAD
+    UNLOAD
+    WAITING
+    MOVEMENT_TO_SEGMENT
+    MOVEMENT_IN_SEGMENT
+    MOVEMENT_IN_SIDING
+}
+
+Schedule_Event "1.." -- "1" Train :  has <
+Schedule_Event "1" -- "1" Schedule_Event_Type : is kind of the >
+Schedule_Event "*" -- "2" Position : has >
+
+General_Schedule "1" -- "*" Schedule_Event : is composed by >
+
+note on link
+    A Schedule Event is part of a General Schedule,
+    where we can access information about the train, like:
+    the estimated times of passage for each train at
+    the various points along the route and the necessary
+    crossing operations.
+end note
+
+
+'======================================================================
+'   Freight Related
+'======================================================================
+
+
+class Freight {
+  id
+}
+
+class FreightWagon {
+  id
+  plannedCargoWeight
+  plannedBoxCount
+}
+
+class Path {
+  id
+}
+
+class Route {
+  id
+}
+
+enum RouteType{
+  SIMPLE
+  COMPLEX
+}
+
+
+
+
+Freight "1" -- "1" Facility : origin >
+Freight "1" -- "1" Facility : destination >
+
+Freight "1" -- "1..*" FreightWagon : consists of >
+FreightWagon "*" -- "1" Wagon : uses >
+
+Path "1" -- "1..*" RailLine : ordered list of rail lines >
+Route "1" -- "1..*" Freight : includes >
+Route "1" -- "1" RouteType : types >
+Route "1" -- "1" Path : uses a >
+
+
+'======================================================================
+'   BLOCO D — Orders
+'======================================================================
+class Order {
+    id
+    dueDate
+    priority
+}
+
+class OrderLine {
+    id
+    orderId
+    lineNumber
+    sku
+    quantity
+}
+
+enum OrderLineStatus {
+    ELIGIBLE
+    PARTIAL
+    UNDISPATCHABLE
+    ALLOCATED
+}
+
+class AllocatedInfo {
+    allocationId
+    quantityAllocated
+}
+
+Order "1" -down- "1..*" OrderLine : contains >
+OrderLine "1" -right- "1" OrderLineStatus : has state >
+OrderLine "0..*" -right- "0..*" Box : possibleBox >
+OrderLine "0..*" -down- "0..*" AllocatedInfo : has allocation >
+
+note right of Order
+  Represents a planned shipment request with due date,
+  time and priority. Each order references one or more lines.
+end note
+
+note right of OrderLine
+  Tracks item quantity and allocation progress.
+  possibleBox uses FEFO sorting logic for perishable items.
+end note
+
+'======================================================================
+'   BLOCO E — Trolleys
+'======================================================================
+class Trolley {
+    trolleyId
+    capacity
+}
+
+class TrolleyModel {
+    id
+    name
+    maximumWeight
+}
+
+class TrolleyAllocation {
+    quantity
+    itemWeight
+}
+
+class PickingPlan {
+    heuristicUsed
+}
+
+
+Trolley "0..*" -right- "1" TrolleyModel : has model >
+Trolley "1" -down- "0..*" TrolleyAllocation : has allocations >
+TrolleyAllocation "1" -right- "1" Box : from box >
+TrolleyAllocation "1" -right- "1" OrderLine : for order line >
+PickingPlan "1" -- "1..*" OrderLine : fulfills >
+
+note right of Trolley
+  Mobile unit used to temporarily store boxes
+  corresponding to OrderLines being prepared.
+  Weight must not exceed model.maxWeight.
+end note
+
+note right of TrolleyAllocation
+  Links a specific Box and OrderLine within a trolley.
+  quantity and itemWeight determine total load.
+end note
+
+note right of PickingPlan
+  Represents a complete picking plan for a set of orders.
+  Includes which order lines are assigned to which trolleys
+  using one of the packing heuristics.
+end note
+
+'======================================================================
+'   Gestão de Devoluções
+'======================================================================
+
+class Return {
+    reason
+    quantity
+    timestamp
+}
+
+enum ReturnReason {
+    CUSTOMER_REMORSE
+    DAMAGED
+    EXPIRED
+    CYCLE_COUNT
+}
+
+class Quarantine {
+    entryDate
+    inspectionDate
+    inspector
+    disposition
+}
+
+enum Disposition {
+    RESTOCKED
+    DISCARDED
+}
+
+Return "1" -- "1" ReturnReason : due to >
+Return "1" -- "1" Quarantine : placed in >
+Quarantine "1" -- "1" Disposition : results in >
+
+note right of Quarantine
+  Returned goods are inspected in reverse
+  arrival order (latest first) and either:
+  • Restocked as new box in inventory, or
+  • Discarded if unsuitable
+end note
+
+'======================================================================
+'   Track Related
+'======================================================================
+
+class Track {
+    trackNumber
+    state
+}
+
+enum TrackState {
+    FREE
+    BUSY
+    ASSIGNED
+    INOPERATIVE
+}
+
+
+Facility "1" -- "1..99" Track : has >
+Track "1" -- "0..1" Train : assigned to <
+Track "*" -- "1" TrackState : has a >
+
+'======================================================================
+'   User Related
+'======================================================================
+
+class User {
+    username
+    password
+}
+
+enum UserRole {
+    ADMIN
+    STATION_OPERATOR
+}
+
+User "*" -- "1" UserRole : has a >
+
+'======================================================================
+'   Log Related
+'======================================================================
+
+class Log {
+    action_date
+    action
+}
+Log "*" -- "1" User : performed by >
+
+
+@enduml

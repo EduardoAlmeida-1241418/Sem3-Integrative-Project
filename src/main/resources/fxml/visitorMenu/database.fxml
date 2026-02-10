@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.visitorMenu.DatabaseGUI">
+   <children>
+      <AnchorPane prefHeight="80.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logos/Logo.png" />
+               </image></ImageView>
+            <AnchorPane layoutX="1063.0" layoutY="11.0" prefHeight="76.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons/avatar_hello_login.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="100.0" layoutY="8.0" prefHeight="60.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Hello!" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label text="Login" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button fx:id="loginButton" layoutX="-1.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="81.0" prefWidth="203.0" style="-fx-background-color: transparent;" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-1.0" layoutY="91.0" prefHeight="561.0" prefWidth="315.0" style="-fx-background-color: #021E37;">
+         <children>
+            <VBox prefHeight="561.0" prefWidth="316.0">
+               <children>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_Home.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="home1" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="      Home                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="29.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/team.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="devTeamButton" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#devTeamButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="      Development Team" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="aboutProjectButton1" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="Database          " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/database.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                         <ImageView fitHeight="57.0" fitWidth="39.0" layoutX="25.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="@../../images/icons/Icon_About.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="aboutProjectButton" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#aboutProjectButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="   About the Project" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="133.0" prefWidth="316.0" />
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="closeApplicationButton1" alignment="CENTER" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeApplicationButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="Close Application" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_Logout.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+      <VBox layoutX="387.0" layoutY="148.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="790.0" text="DATABASE" textFill="#00162a">
+               <font>
+                  <Font name="Britannic Bold" size="64.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="54.0" prefWidth="790.0" />
+            <Label alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="103.0" prefWidth="790.0" text="The database is where all the system information is stored — such as users, stations, trains, routes, and operations. It is thanks to the database that the system is able to keep data organised, secure, and available whenever it is needed, ensuring that all features function correctly." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="28.0" prefWidth="790.0" />
+            <Label alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="100.0" prefWidth="790.0" text="The ‘Reset Database’ button allows you to reset the database to its original (default) state. This removes any changes made by the user, restoring the initial data. It should be used when you want to clear the system or return to the base state for testing." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="691.0" layoutY="524.0" prefHeight="57.0" prefWidth="181.0">
+         <children>
+            <Button fx:id="resetDataBaseButton" mnemonicParsing="false" onAction="#resetDataBaseOnAction" prefHeight="57.0" prefWidth="181.0" style="-fx-background-color: #021E37; -fx-background-radius: 3; -fx-border-radius: 3;" text="Reset Database" textFill="WHITE">
+               <font>
+                  <Font name="Britannic Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

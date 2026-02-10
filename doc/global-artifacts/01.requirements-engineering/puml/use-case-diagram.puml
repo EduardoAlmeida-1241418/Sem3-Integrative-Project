@@ -1,0 +1,243 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Product Owner" as PO
+actor "Planner" as Planner
+actor "Terminal Operator" as Operator
+actor "Warehouse Planner" as Warehouse
+actor "Picker" as Picker
+actor "Quality Operator" as Quality
+actor "Station Storage Manager" as StorageManager
+actor "System Administrator" as SA
+actor "Administrator" as A
+actor "User" as U
+actor "Traffic Dispatcher" as Dispatcher
+actor "Freight Manager" as FM
+actor "Data Engineer" as DE
+actor "Analyst" as analyst
+actor "Operations Planner" as OP
+actor "Infrastructure Planner" as IP
+actor "Maintenance Planner" as MP
+actor "Operations Analyst" as OA
+actor "Route Planner" as RP
+actor "Traffic Manager" as TM
+
+rectangle "Railway Logistics System" {
+    ' Product Owner
+    usecase "USBD01: Create Data Dictionary / Glossary" as USBD01
+    usecase "USBD02: Design Logical Relational Model (ERD)" as USBD02
+    usecase "USBD03: Instantiate Relational Model with SQL DDL" as USBD03
+    usecase "USBD04: Insert Provided Data Into The New Database" as USBD04
+    usecase "USLP01: Create Conceptual Domain Model" as USLP01
+    usecase "USBD21: Update Relational Model" as USBD21
+    usecase "USBD31: Update Relational Model and Instantiate in Oracle" as USBD31
+    usecase "USBD32: Populate Oracle Database with Required Data" as USBD32
+    usecase "USLP04: Update Data Dictionary / Glossary" as USLP04
+    usecase "USLP05: Update conceptual domain model" as USLP05
+    usecase "USLP06: Update data dictionary/glossary" as USLP06
+
+    'Data Engineer
+    usecase "USEI07: Create a 2D Tree" as USEI07
+
+    'Analyst
+    usecase "USEI09: Proximity Search" as USEI09
+
+    'Operations Planner
+    usecase "USEI10: Radius search and density summary" as USEI10
+
+    'Infrastructure Planner
+    usecase "USEI11: Directed Line Upgrade Plan" as USEI11
+    usecase "USEI12: Minimal Backbone Network" as USEI12
+
+    'Maintenance Planner
+    usecase "USEI13: Rail Hub Centrality Analysis" as USEI13
+
+    'Operations Analyst
+    usecase "USEI14: Maximum throughput between two Hubs" as USEI14
+
+    'Route Planner
+    usecase "USEI15: Risk-Aware Shortest Paths" as USEI15
+
+    ' Planner
+    usecase "USBD05: List All Line Segments Connecting Two Endpoints" as USBD05
+    usecase "USBD10: List All Wagons Of A Given Type" as USBD10
+    usecase "USBD16: Get Minimum Length Of Double-Track Segments In A Line" as USBD16
+    usecase "USEI03: Picking Plans" as USEI03
+    usecase "USBD23: List of all line segments of a planned train route" as USBD23
+    usecase "USBD25: List of all endpoints of a planned train route" as USBD25
+    usecase "USBD27: List of grain wagons" as USBD27
+    usecase "USBD35: Register New Facility in Database" as USBD35
+    usecase "USBD36: Add Building to Existing Facility" as USBD36
+    usecase "USBD37: Register New Wagon with Supported Gauges" as USBD37
+    usecase "USBD38: Add New Gauge" as USBD38
+    usecase "USBD43: Add New Electric Locomotive Model" as USBD43
+    usecase "USBD44: Add Line Segment and Optional Siding" as USBD44
+    usecase "USBD45: Create New Line with Initial Segment" as USBD45
+    usecase "USEI06: Create Trees" as USEI06
+    usecase "USEI08: Search by Geographical Area" as USEI08
+
+    'Freight Manager (BDDAD)
+    usecase "USBD33: Prevent Trains Exceeding Their Predefined Maximum Length" as USBD33
+    usecase "USBD41: Remove Freight from Planned Train" as USBD41
+    usecase "USLP07: Dispatch a list of trains" as USLP07
+    usecase "USLP08: Plan Routes to Fulfil Pending Freights" as USLP08
+
+    ' Terminal Operator (ESINF)
+    usecase "USEI01: Wagons Unloading (Inventory replenishment)" as USEI01
+
+    ' Warehouse Planner (ESINF)
+    usecase "USEI02: Order Eligibility & Allocation" as USEI02
+
+    ' Picker (ESINF)
+    usecase "USEI04: Pick Path Sequencing" as USEI04
+
+    ' Quality Operator (ESINF)
+    usecase "USEI05: Returns & Quarantine" as USEI05
+
+    'Station Storage Manager (LAPR3)
+    usecase "USLP02: Implement Text-Based Interface for Cargo Handling" as USLP02
+
+    'Traffic Dispatcher (LAPR3)
+    usecase "USLP03: Estimated Travel Time Calculation" as USLP03
+
+    'Traffic Manager
+    usecase "USLP09: Assemble and Assign Train to Route" as USLP09
+    usecase "USLP10: Schedule and Dispatch Trains by Route" as USLP10
+
+    'System Administrator (ARQCP)
+    usecase "USAC01: Encrypt Data" as USAC01
+    usecase "USAC02: Decrypt Data" as USAC02
+    usecase "USAC03: Extract Data" as USAC03
+    usecase "USAC04: Format Command" as USAC04
+    usecase "USAC05: Enqueue Value" as USAC05
+    usecase "USAC06: Dequeue Value" as USAC06
+    usecase "USAC07: Move N Elements to an Array" as USAC07
+    usecase "USAC08: Sort Array" as USAC08
+    usecase "USAC09: Find Median" as USAC09
+    usecase "USAC10: Assemble Sensors and LightSigns Devices" as USAC10
+
+    'Administrator (ARQCP)
+    usecase "USAC11: Initial Setup of Data Structures from a Text File" as USAC11
+    usecase "USAC12: Create a Text File with a Sequence of Actions" as USAC12
+
+    'User (ARQCP)
+    usecase "USAC13: Retrieve Data from the Sensors Component" as USAC13
+    usecase "USAC14: Control the Track Sign Light" as USAC14
+    usecase "USAC15: Send Data to the Board Component" as USAC15
+    usecase "USAC16: Manage Railway Tracks of a Station" as USAC16
+}
+
+'System Administrator
+SA --> USAC01
+SA --> USAC02
+SA --> USAC03
+SA --> USAC04
+SA --> USAC05
+SA --> USAC06
+SA --> USAC07
+SA --> USAC08
+SA --> USAC09
+SA --> USAC10
+
+'Administrator
+A --> USAC11
+A --> USAC12
+
+'User
+U --> USAC13
+U --> USAC14
+U --> USAC15
+U --> USAC16
+
+' Product Owner
+PO --> USBD01
+PO --> USBD02
+PO --> USBD03
+PO --> USBD04
+PO --> USLP01
+PO --> USBD21
+PO --> USBD31
+PO --> USBD32
+PO --> USLP04
+PO --> USLP05
+PO --> USLP06
+
+' Data Engineer
+DE --> USEI07
+
+OP --> USEI10
+
+IP --> USEI11
+IP --> USEI12
+
+MP --> USEI13
+
+OA --> USEI14
+
+RP --> USEI15
+
+FM --> USBD33
+FM --> USBD41
+FM --> USLP07
+FM --> USLP08
+
+TM --> USLP09
+TM --> USLP10
+
+SA --> USAC01
+SA --> USAC02
+SA --> USAC03
+SA --> USAC04
+SA --> USAC05
+SA --> USAC06
+SA --> USAC07
+SA --> USAC08
+SA --> USAC09
+SA --> USAC10
+
+U --> USAC13
+U --> USAC14
+U --> USAC15
+U --> USAC16
+
+' Analyst
+A --> USEI09
+
+' Planner
+Planner --> USBD05
+Planner --> USBD10
+Planner --> USBD16
+Planner --> USEI03
+Planner --> USBD23
+Planner --> USBD25
+Planner --> USBD27
+Planner --> USBD35
+Planner --> USBD36
+Planner --> USBD37
+Planner --> USBD38
+Planner --> USBD43
+Planner --> USBD44
+Planner --> USBD45
+Planner --> USEI06
+Planner --> USEI08
+
+' Terminal Operator
+Operator --> USEI01
+
+' Warehouse Planner
+Warehouse --> USEI02
+
+' Picker
+Picker --> USEI04
+
+' Quality Operator
+Quality --> USEI05
+
+' Station Storage Manager
+StorageManager --> USLP02
+
+' Traffic Dispatcher
+Dispatcher --> USLP03
+
+@enduml

@@ -1,0 +1,42 @@
+/* ===== RADIOBUTTON – improved, visible & elegant ===== */
+.radio-button {
+    -fx-font-size: 13px;
+    -fx-text-fill: #021E37;
+    -fx-padding: 4 6;
+}
+
+/* Círculo exterior */
+.radio-button .radio {
+    -fx-background-color: white;
+    -fx-border-color: #707C8E;
+    -fx-border-width: 1.8px;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-padding: 4;
+}
+
+/* Hover */
+.radio-button:hover .radio {
+    -fx-border-color: #0b5fa4;
+}
+
+/* Estado selecionado */
+.radio-button:selected .radio {
+    -fx-border-color: #0b5fa4;
+}
+
+/* Dot interno */
+.radio-button .dot {
+    -fx-background-radius: 999;
+    -fx-padding: 4;
+}
+
+/* Dot quando selecionado */
+.radio-button:selected .dot {
+    -fx-background-color: #0b5fa4;
+}
+
+/* Focus (acessibilidade e UX) */
+.radio-button:focused .radio {
+    -fx-effect: dropshadow(gaussian, rgba(11,95,164,0.35), 6, 0, 0, 0);
+}

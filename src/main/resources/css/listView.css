@@ -1,0 +1,44 @@
+/* ===== LISTVIEW – flat claro ===== */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #C9D3DE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6;
+    -fx-control-inner-background: white;
+}
+
+.list-view:focused {
+    -fx-border-color: #0b5fa4;
+}
+
+/* Itens */
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #021E37;
+    -fx-font-size: 13px;
+    -fx-padding: 8 12;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: rgba(17,80,137,0.08);
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: rgba(17,80,137,0.18);
+    -fx-text-fill: #021E37;
+}
+
+/* Scrollbars discretas */
+.list-view .scroll-bar:horizontal,
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-width: 10;
+    -fx-pref-height: 10;
+}
+
+.list-view .thumb {
+    -fx-background-color: #C9D3DE;
+    -fx-background-radius: 5;
+}

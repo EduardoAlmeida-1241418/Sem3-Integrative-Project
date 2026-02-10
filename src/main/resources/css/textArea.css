@@ -1,0 +1,43 @@
+/* ===== TEXTAREA – flat + consistente ===== */
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #C9D3DE;
+    -fx-border-width: 1.6px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+    -fx-text-fill: #021E37;
+    -fx-prompt-text-fill: #707C8E;
+}
+
+/* O TextArea tem um content interno */
+.text-area .content {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 10;
+}
+
+.text-area:hover {
+    -fx-border-color: #AEBBCC;
+}
+
+.text-area:focused {
+    -fx-border-color: #0b5fa4;
+}
+
+.text-area:focused .content {
+    -fx-background-color: #eef5ff;
+}
+
+/* Scrollbars discretas */
+.text-area .scroll-bar:horizontal,
+.text-area .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10;
+    -fx-pref-height: 10;
+}
+
+.text-area .thumb {
+    -fx-background-color: #C9D3DE;
+    -fx-background-radius: 5;
+}

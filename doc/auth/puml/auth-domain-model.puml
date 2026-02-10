@@ -1,0 +1,19 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide methods
+
+title Domain Model - Authentication
+
+class User {
+  - id : int
+  - email : String
+  - password : String
+  - isActive : boolean
+  - roleList : ArrayList<String>
+}
+
+note "Authentication (summary):\n- Available roles: Admin, Picker, Planner, Quality Operator, Terminal Operator, Traffic Dispatcher, Warehouse Planner.\n- Sign-in flow: verify email -> check password -> ensure account isActive -> choose role to sign in as." as N1
+
+@enduml

@@ -1,0 +1,62 @@
+/* --- ComboBox base --- */
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #1b3b6f;
+    -fx-border-width: 1.8px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 2 6;
+    -fx-pref-height: 43;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1b3b6f;
+}
+
+/* Hover do campo principal */
+.combo-box:hover {
+    -fx-border-color: #25508f; /* azul um pouco mais claro */
+}
+
+/* Foco (quando clicado) */
+.combo-box:focused {
+    -fx-border-color: #0b5fa4;  /* azul do botão Create */
+}
+
+/* --- Seta minimalista --- */
+.combo-box .arrow-button {
+    -fx-padding: 0 4 0 0; /* mais compacto */
+}
+
+.combo-box .arrow {
+    -fx-background-color: #1b3b6f;
+    -fx-shape: "M 3 0 L 6 5 L 0 5 Z"; /* seta menor */
+}
+
+/* Hover da seta */
+.combo-box .arrow-button:hover .arrow {
+    -fx-background-color: #0b5fa4;
+}
+
+/* --- Lista dropdown --- */
+.combo-box .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #0b5fa4;
+    -fx-border-width: 1.4px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+
+}
+
+/* Cada item da lista */
+.combo-box .list-cell {
+    -fx-padding: 4 10;
+    -fx-font-size: 13px;
+    -fx-min-height: 24;
+    -fx-pref-height: 24;
+
+}
+
+/* Item selecionado */
+.combo-box .list-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1b3b6f;
+}

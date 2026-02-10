@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.planner.PlannerHomePageGUI">
+   <children>
+      <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logos/Logo.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="993.0" prefHeight="91.0" prefWidth="287.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="107.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons/avatar_hello_login.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="180.0" layoutY="8.0" prefHeight="60.0" prefWidth="103.0" />
+                  <Label layoutX="179.0" layoutY="44.0" text="Planner" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="179.0" layoutY="19.0" text="Hello!" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-1.0" layoutY="84.0" prefHeight="566.0" prefWidth="316.0" style="-fx-background-color: #021E37;">
+         <children>
+            <VBox layoutY="6.0" prefHeight="392.0" prefWidth="315.0">
+               <children>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #00162A;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home11" alignment="CENTER" layoutX="1.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_Home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home21" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#trolleysOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="            Trolleys                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="29.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/trolley.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848; -fx-background-color: #021E37;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home31" alignment="CENTER" layoutX="9.0" layoutY="-1.0" mnemonicParsing="false" onAction="#pickingPlansOnAction" prefHeight="76.0" prefWidth="303.0" style="-fx-background-color: transparent;" text="        Picking Plans           " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="35.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/picking_plan.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="searchStationButton1" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#searchStationButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="            Search Stations           " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="35.0" layoutX="34.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_search_stations.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleGeographicalArea" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="     Geographical Area" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="60.0" fitWidth="67.0" layoutX="23.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/GeographicalArea.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="75.0" prefWidth="307.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="home41" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#LogsOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="      WMS / GQS           " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="21.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/WMS.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="52.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/GQS.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="1.0" prefWidth="317.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Button fx:id="Card12111" alignment="CENTER" layoutX="14.0" layoutY="-21.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="303.0" style="-fx-background-color: transparent;" text="        Home                       " textFill="#ffffff00">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="319.0" prefHeight="75.0" prefWidth="316.0" style="-fx-border-color: #484848;">
+                     <children>
+                        <Label layoutX="294.0" layoutY="21.0" prefHeight="30.0" prefWidth="16.0" text="❯" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="logoutButton1" alignment="CENTER" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="76.0" prefWidth="313.0" style="-fx-background-color: transparent;" text="        Logout                       " textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="39.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icons/Icon_Logout.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="413.0" layoutY="148.0" prefHeight="464.0" prefWidth="793.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="73.0" prefWidth="792.0" text="Planner" textFill="#00162a">
+               <font>
+                  <Font name="Britannic Bold" size="64.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="54.0" prefWidth="790.0" />
+            <Label alignment="TOP_LEFT" lineSpacing="8.0" prefHeight="118.0" prefWidth="790.0" text="The planner receives the allocation list, containing order lines with box, SKU, weight, and location data. Each trolley has a defined weight capacity that must not be exceeded. The planner’s goal is to distribute all allocations into trolleys efficiently, minimizing the number of trolleys used and maximizing utilization." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="73.0" prefWidth="792.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="2.0" layoutY="18.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="790.0" text="Difference between the packing strategies:" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Britannic Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label alignment="TOP_LEFT" graphicTextGap="5.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="790.0" text="- First Fit: places each item in the first trolley where it fits, keeping the original order." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" lineSpacing="5.0" prefHeight="36.0" prefWidth="761.0" text="- First Fit Decreasing: sorts items by weight (largest first) before applying First Fit." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" graphicTextGap="5.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="790.0" text="- Best Fit Decreasing: also sorts by weight but places each item in the trolley that leaves the least remaining capacity." wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

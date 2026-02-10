@@ -1,0 +1,67 @@
+@startuml
+title SD - Backend - Schedule Generator
+
+participant ScheduleGenerator
+participant GeneralSchedule
+participant TrainSchedule
+participant ScheduleEvent
+participant ScheduleAction
+
+== Pedido de Geração ==
+activate ScheduleGenerator
+ScheduleGenerator -> ScheduleGenerator: generateSchedule(inputData)
+
+== Inicialização do Schedule Geral ==
+ScheduleGenerator -> GeneralSchedule: <<create>>()
+activate GeneralSchedule
+ScheduleGenerator <-- GeneralSchedule: generalSchedule
+deactivate GeneralSchedule
+
+== Processamento por Comboio ==
+loop for each Train
+    ScheduleGenerator -> TrainSchedule: <<create>>(trainId)
+    activate TrainSchedule
+    ScheduleGenerator <-- TrainSchedule: trainSchedule
+
+    ScheduleGenerator -> TrainSchedule: initialize()
+
+    == Geração de Eventos ==
+    loop for each ScheduleEventType
+        ScheduleGenerator -> ScheduleEvent: <<create>>(type, time)
+        activate ScheduleEvent
+        ScheduleGenerator <-- ScheduleEvent: event
+
+        alt event requires action
+            ScheduleGenerator -> ScheduleAction: <<create>>(actionType)
+            activate ScheduleAction
+            ScheduleGenerator <-- ScheduleAction: action
+
+            ScheduleEvent -> ScheduleAction: linkAction()
+            deactivate ScheduleAction
+        end
+
+        ScheduleGenerator -> TrainSchedule: addEvent(event)
+        deactivate ScheduleEvent
+    end
+
+    == Validação do TrainSchedule ==
+    ScheduleGenerator -> TrainSchedule: validateSchedule()
+    TrainSchedule --> ScheduleGenerator: validationResult
+
+    alt schedule valid
+        ScheduleGenerator -> GeneralSchedule: addTrainSchedule(trainSchedule)
+    else schedule invalid
+        ScheduleGenerator -> TrainSchedule: adjustSchedule()
+        ScheduleGenerator -> GeneralSchedule: addTrainSchedule(trainSchedule)
+    end
+
+    deactivate TrainSchedule
+end
+
+== Finalização ==
+ScheduleGenerator -> GeneralSchedule: finalizeSchedule()
+GeneralSchedule --> ScheduleGenerator: finalizedSchedule
+
+ScheduleGenerator -> ScheduleGenerator: return finalizedSchedule
+
+@enduml

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.infrastructurePlanner.ViewBackboneMapGUI">
+
+    <children>
+
+        <WebView fx:id="webView" prefWidth="804.0" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="10" />
+
+        <Button fx:id="backButton" onAction="#handleBack" text="Back" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" />
+      <Button fx:id="zoomInButton" layoutX="698.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleZoomIn" text="+" />
+      <Button fx:id="zoomOutButton" layoutX="735.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleZoomOut" text="-" />
+
+    </children>
+
+</AnchorPane>

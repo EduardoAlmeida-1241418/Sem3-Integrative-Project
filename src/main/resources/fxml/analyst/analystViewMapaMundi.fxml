@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to bottom, #021E37, #e7edf3);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.analyst.AnalystViewMapaMundiGUI">
+
+    <children>
+
+        <!-- VIEWPORT PRINCIPAL -->
+        <AnchorPane fx:id="viewport" layoutX="78.0" layoutY="91.0" prefHeight="562.0" prefWidth="1114.0" style="-fx-background-color: transparent;">
+
+            <!-- CARD BRANCO QUE CONTÉM O MAPA -->
+            <StackPane style="-fx-background-color: white; -fx-background-radius: 16;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                <!-- Imagem do mapa -->
+                <ImageView fx:id="mapaMundiImageView" fitHeight="562.0" fitWidth="1124.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/graphicRelated/IMG_MapMundi.jpg" />
+                    </image>
+                </ImageView>
+
+                <!-- Canvas para desenhar os pontos -->
+                <Canvas fx:id="canvas" height="563.0" pickOnBounds="false" width="1124.0" />
+            </StackPane>
+
+            <!-- Botão BACK (azul bonito) -->
+            <Button fx:id="backButton" onAction="#backButtonOnAction" style="                         -fx-background-color: linear-gradient(to right, #0b63ce, #1a86ff);                         -fx-text-fill: white;                         -fx-font-weight: bold;                         -fx-background-radius: 20;                         -fx-padding: 6 22 6 22;" text="⬅ Back" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="16.0">
+                <font><Font size="14.0" /></font>
+                <effect>
+                    <DropShadow color="#00000055" offsetY="2.0" radius="10.0" />
+                </effect>
+            </Button>
+
+        </AnchorPane>
+      <AnchorPane prefHeight="91.0" prefWidth="1280.0" style="-fx-background-color: #021E37;">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logos/Logo.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="993.0" prefHeight="91.0" prefWidth="287.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="153.0" layoutX="107.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons/avatar_hello_login.png" />
+                     </image>
+                  </ImageView>
+                  <VBox layoutX="180.0" layoutY="8.0" prefHeight="60.0" prefWidth="103.0" />
+                  <Label layoutX="179.0" layoutY="44.0" text="Analyst" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="179.0" layoutY="19.0" text="Hello!" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+
+    </children>
+</AnchorPane>

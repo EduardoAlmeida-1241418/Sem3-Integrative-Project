@@ -1,0 +1,25 @@
+graph mst {
+  layout=neato;
+  overlap=false;
+  splines=false;
+  node [shape=circle];
+  "A" [label="A", pos="50.00,200.00!"];
+  "B" [label="B", pos="50.00,100.00!"];
+  "C" [label="C", pos="150.00,150.00!"];
+  "D" [label="D", pos="250.00,150.00!"];
+  "E" [label="E", pos="350.00,100.00!"];
+  "F" [label="F", pos="350.00,200.00!"];
+  "G" [label="G", pos="250.00,250.00!"];
+  "H" [label="H", pos="150.00,250.00!"];
+  "I" [label="I", pos="450.00,150.00!"];
+  "J" [label="J", pos="550.00,150.00!"];
+  "B" -- "C" [label="2.00 km", penwidth=3.0];
+  "F" -- "G" [label="2.00 km", penwidth=3.0];
+  "I" -- "J" [label="1.00 km", penwidth=3.0];
+  "C" -- "E" [label="2.00 km", penwidth=3.0];
+  "H" -- "I" [label="3.00 km", penwidth=3.0];
+  "A" -- "B" [label="4.00 km", penwidth=3.0];
+  "G" -- "H" [label="3.00 km", penwidth=3.0];
+  "D" -- "F" [label="5.00 km", penwidth=3.0];
+  "D" -- "E" [label="1.00 km", penwidth=3.0];
+}

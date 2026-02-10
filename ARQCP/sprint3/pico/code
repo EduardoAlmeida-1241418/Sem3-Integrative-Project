@@ -1,0 +1,234 @@
+#include <Wire.h>
+#include <hd44780.h>
+#include <hd44780ioClass/hd44780_I2Cexp.h>
+#include <DHT.h>
+
+#define DHTPIN 28
+#define DHTTYPE DHT11
+
+hd44780_I2Cexp lcd;
+DHT dht(DHTPIN, DHTTYPE);
+
+/* Traffic Light 1 */
+const int red1 = 18;
+const int yellow1 = 17;
+const int green1 = 16;
+
+/* Traffic Light 2 */
+const int red2 = 13;
+const int yellow2 = 14;
+const int green2 = 15;
+
+/* Blinking control */
+bool blinking1 = false;
+bool blinking2 = false;
+
+bool blinkState1 = false;
+bool blinkState2 = false;
+
+unsigned long lastBlink1 = 0;
+unsigned long lastBlink2 = 0;
+
+const unsigned long blinkInterval = 300;
+
+String incoming;
+
+/* ---------- RESET ---------- */
+void resetState() {
+  blinking1 = false;
+  blinking2 = false;
+  blinkState1 = false;
+  blinkState2 = false;
+
+  digitalWrite(red1, LOW);
+  digitalWrite(yellow1, LOW);
+  digitalWrite(green1, LOW);
+
+  digitalWrite(red2, LOW);
+  digitalWrite(yellow2, LOW);
+  digitalWrite(green2, LOW);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("System Ready");
+}
+
+/* ---------- SETUP ---------- */
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(red1, OUTPUT);
+  pinMode(yellow1, OUTPUT);
+  pinMode(green1, OUTPUT);
+
+  pinMode(red2, OUTPUT);
+  pinMode(yellow2, OUTPUT);
+  pinMode(green2, OUTPUT);
+
+  Wire.setSDA(4);
+  Wire.setSCL(5);
+  Wire.begin();
+
+  lcd.begin(16, 2);
+  lcd.backlight();
+
+  dht.begin();
+  resetState();
+}
+
+/* ---------- LOOP ---------- */
+void loop() {
+  handleBlinking();
+
+  if (Serial.available()) {
+    incoming = Serial.readStringUntil('\n');
+    incoming.trim();
+    processCommand(incoming);
+  }
+}
+
+/* ---------- COMMANDS ---------- */
+void processCommand(String cmd) {
+  if (cmd == "RESET") {
+    resetState();
+    Serial.println("OK");
+    return;
+  }
+
+  if (cmd == "GTH") {
+    sendSensorData();
+    return;
+  }
+
+  String prefix = cmd.substring(0, 2);
+  int light = cmd.substring(3).toInt();
+
+  if (light == 1) {
+    if (prefix == "RE") setLight1(0);
+    else if (prefix == "YE") setLight1(1);
+    else if (prefix == "GE") setLight1(2);
+    else if (prefix == "RB") blinkRed1();
+    else Serial.println("ERROR");
+    return;
+  }
+  else if (light == 2) {
+    if (prefix == "RE") setLight2(0);
+    else if (prefix == "YE") setLight2(1);
+    else if (prefix == "GE") setLight2(2);
+    else if (prefix == "RB") blinkRed2();
+    else Serial.println("ERROR");
+    return;
+  }
+
+  Serial.println("ERROR");
+}
+
+/* ---------- TRAFFIC LIGHT 1 ---------- */
+void setLight1(int color) {
+  blinking1 = false;
+
+  digitalWrite(red1, LOW);
+  digitalWrite(yellow1, LOW);
+  digitalWrite(green1, LOW);
+
+  if (color == 0) digitalWrite(red1, HIGH);
+  if (color == 1) digitalWrite(yellow1, HIGH);
+  if (color == 2) digitalWrite(green1, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Track 1:");
+  lcd.setCursor(0, 1);
+  lcd.print(color == 0 ? "IS BUSY" : color == 1 ? "ASSIGNED TRAIN" : "IS FREE");
+}
+
+void blinkRed1() {
+  blinking1 = true;
+
+  digitalWrite(red1, LOW);
+  digitalWrite(yellow1, LOW);
+  digitalWrite(green1, LOW);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Track 1:");
+  lcd.setCursor(0, 1);
+  lcd.print("IS INOPERATIVE");
+}
+
+/* ---------- TRAFFIC LIGHT 2 ---------- */
+void setLight2(int color) {
+  blinking2 = false;
+
+  digitalWrite(red2, LOW);
+  digitalWrite(yellow2, LOW);
+  digitalWrite(green2, LOW);
+
+  if (color == 0) digitalWrite(red2, HIGH);
+  if (color == 1) digitalWrite(yellow2, HIGH);
+  if (color == 2) digitalWrite(green2, HIGH);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Track 2:");
+  lcd.setCursor(0, 1);
+  lcd.print(color == 0 ? "IS BUSY" : color == 1 ? "ASSIGNED TRAIN" : "IS FREE");
+}
+
+void blinkRed2() {
+  blinking2 = true;
+
+  digitalWrite(red2, LOW);
+  digitalWrite(yellow2, LOW);
+  digitalWrite(green2, LOW);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Track 2:");
+  lcd.setCursor(0, 1);
+  lcd.print("IS INOPERATIVE");
+}
+
+/* ---------- BLINK HANDLER ---------- */
+void handleBlinking() {
+  unsigned long now = millis();
+
+  if (blinking1 && now - lastBlink1 >= blinkInterval) {
+    lastBlink1 = now;
+    blinkState1 = !blinkState1;
+    digitalWrite(red1, blinkState1);
+  }
+
+  if (blinking2 && now - lastBlink2 >= blinkInterval) {
+    lastBlink2 = now;
+    blinkState2 = !blinkState2;
+    digitalWrite(red2, blinkState2);
+  }
+}
+
+/* ---------- SENSOR ---------- */
+void sendSensorData() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println("TEMP&unit:celsius&value:-1#HUM&unit:percentage&value:-1");
+    return;
+  }
+
+  Serial.print("TEMP&unit:celsius&value:");
+  Serial.print((int)t);
+  Serial.print("#HUM&unit:percentage&value:");
+  Serial.println((int)h);
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: ");
+  lcd.print((int)t);
+  lcd.print(" C");
+
+  lcd.setCursor(0, 1);
+  lcd.print("Hum: ");
+  lcd.print((int)h);
+  lcd.print(" %");
+}

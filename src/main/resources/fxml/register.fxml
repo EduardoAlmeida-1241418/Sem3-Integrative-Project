@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="604.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipp.isep.dei.ui.gui.login.RegisterGUI">
+   <children>
+      <Button fx:id="backButton" layoutX="472.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonOnAction" rotate="180.0" style="-fx-background-color: transparent;" text="➔">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="638.0" layoutY="96.0" prefHeight="32.0" prefWidth="101.0" text="Platform!">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="511.0" layoutY="68.0" prefHeight="32.0" prefWidth="353.0" text="Welcome to the Railway Logistics ">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="490.0" layoutY="138.0" prefHeight="28.0" prefWidth="131.0" text="Register here" textFill="#115089">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <VBox layoutX="490.0" layoutY="220.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="131.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordTextField" prefHeight="25.0" prefWidth="350.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="490.0" layoutY="166.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="131.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailTextField" prefHeight="25.0" prefWidth="350.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="490.0" layoutY="281.0">
+         <children>
+            <Label text="To create a new password, make sure it includes:" textFill="#625e5e">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="least8CharactersLabel" text="At least 8 characters." textFill="#625e5e">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="capitalLeterLabel" text="Includes one capital letter." textFill="#625e5e">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="oneNumberLabel" text="One number." textFill="#625e5e">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="specialCharacterLabel" text="And one special character (e.g., !, @, #)." textFill="#625e5e">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="490.0" layoutY="361.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="131.0" text="Confirm Password">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="confirmPasswordTextField" prefHeight="25.0" prefWidth="350.0" />
+         </children>
+      </VBox>
+      <Button fx:id="registerButton" layoutX="619.0" layoutY="431.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #115089; -fx-border-radius: 5;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="577.0" layoutY="514.0" prefHeight="19.0" prefWidth="174.0" text="Have you registered yet?">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginButton" layoutX="618.0" layoutY="545.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #115089; -fx-border-radius: 5;" text="Login here" textFill="#115089" />
+      <ImageView fitHeight="609.0" fitWidth="441.0" layoutX="-5.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/loginImages/fundo_login_register.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="349.0" layoutX="512.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/loginImages/or.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="errorLabel" layoutX="491.0" layoutY="417.0" textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

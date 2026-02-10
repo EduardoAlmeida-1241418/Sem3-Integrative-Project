@@ -1,0 +1,35 @@
+/* === Estilo para o Inspection Log (txtAudit) === */
+#txtAudit {
+    -fx-font-family: "Courier New", Consolas, monospace;  /* fonte monoespaçada */
+    -fx-font-size: 13px;
+    -fx-text-fill: #1e1e1e;              /* texto cinza escuro */
+    -fx-control-inner-background: #f7f9fb; /* fundo levemente azulado */
+    -fx-highlight-fill: #b3d4fc;        /* cor da seleção */
+    -fx-highlight-text-fill: black;
+    -fx-padding: 10;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #b0c4de;          /* azul-claro suave */
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.12), 6, 0, 0, 2);
+}
+
+/* === Scrollbar refinado === */
+#txtAudit .scroll-bar:vertical,
+#txtAudit .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+#txtAudit .thumb {
+    -fx-background-color: #c7d8eb;
+    -fx-background-radius: 3;
+}
+
+#txtAudit .thumb:hover {
+    -fx-background-color: #a9c1df;
+}
+
+/* === Desativar wrap para logs longos === */
+#txtAudit {
+    -fx-wrap-text: false;
+}
