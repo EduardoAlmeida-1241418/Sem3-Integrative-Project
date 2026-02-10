@@ -74,83 +74,200 @@ The repository is organised as follows:
 
 ## Requirements
 
-- Windows operating system
-- Java 23 (with preview features enabled)
+- Windows or macOS
+- Java Development Kit (**JDK 23**)
 - Oracle Database XE
+- Git
+- Command-line access (PowerShell on Windows, Terminal on macOS)
+
+No IDE is required to build or run the project.
 
 ---
 
-## Database Configuration
+## Java Installation and Configuration
 
-The application requires an **Oracle Database XE** instance.
+This project is compiled with **Java 23** (`--release 23`).
+Using any earlier Java version (e.g. Java 17) will result in build failures.
 
-### Prerequisites
-
-- Oracle Database XE installed and running
-- A database user created
-
-### Example Database Setup
-
-```sql
- CREATE USER sem3pi IDENTIFIED BY pwd;
- GRANT CONNECT, RESOURCE TO sem3pi;
- ```
-
-The Oracle service name can be confirmed using:
-
-```sql
- SELECT name FROM v$services;
- ```
-
-In this project, the service name typically used is:
-
-```
- XEPDB1
- ```
+All steps below are performed **exclusively via the command line**.
 
 ---
 
-## Execution Configuration ([`run.bat`](run.bat))
+### Windows — Java 23 Setup (Command Line)
 
-To execute the application, the database connection and Java environment must be configured in the `run.bat` file located at the root of the project.
+#### 1. Install Java 23
 
-### What to Configure in [`run.bat`](run.bat)
-
-Open the [`run.bat`](run.bat) file and adjust the following variables if necessary:
-
-```bat
- set DB_URL=jdbc:oracle:thin:@localhost:1521/XEPDB1
- set DB_USER=sem3pi
- set DB_PASSWORD=pwd
- ```
-
-- **DB_URL** – JDBC connection string pointing to the Oracle service name
-- **DB_USER** – Oracle database username
-- **DB_PASSWORD** – Oracle database password
-
-Ensure that the Java executable path matches your local installation.
-The application requires **Java 23 with preview features enabled**.
-
-```bat
- "C:\Program Files\Java\jdk-23\bin\java"
-```
-
----
-
-## How to Run the Application (Windows)
-
-After the application has been correctly configured, run:
+Open **PowerShell as Administrator** and run:
 
 ```powershell
- .\run.bat
+winget install --id Oracle.JDK.23 -e
 ```
 
-The execution script will:
+The JDK will be installed in a directory similar to:
 
-- Launch the application using Java 23
-- Enable preview features
-- Load database configuration
-- Establish a connection to Oracle Database XE
+```
+C:\Program Files\Java\jdk-23
+```
+
+---
+
+#### 2. Set JAVA_HOME
+
+Still in **PowerShell as Administrator**, run:
+
+```powershell
+.\setx JAVA_HOME "C:\Program Files\Java\jdk-23" /M
+```
+
+---
+
+#### 3. Restart the terminal
+
+Close **all** open terminals and open a new **PowerShell** window.
+
+Verify:
+
+```powershell
+java -version
+echo $Env:JAVA_HOME
+```
+
+The output must indicate **Java 23**.
+
+---
+
+### macOS — Java 23 Setup (Command Line)
+
+#### 1. Install Homebrew (if not installed)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+---
+
+#### 2. Install Java 23
+
+```bash
+brew install --cask oracle-jdk
+```
+
+---
+
+#### 3. Determine the Java installation path
+
+```bash
+/usr/libexec/java_home -V
+```
+
+Identify the path corresponding to **Java 23**.
+
+---
+
+#### 4. Set JAVA_HOME
+
+Replace `<JAVA_PATH>` with the path obtained above:
+
+```bash
+echo 'export JAVA_HOME="<JAVA_PATH>"' >> ~/.zshrc
+echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.zshrc
+```
+
+Reload the shell configuration:
+
+```bash
+source ~/.zshrc
+```
+
+Verify:
+
+```bash
+java -version
+echo $JAVA_HOME
+```
+
+The output must indicate **Java 23**.
+
+---
+
+## Oracle Database XE Setup
+
+Oracle Database Express Edition is the **only component that requires a browser download**.
+
+After installation, ensure that:
+
+- The Oracle listener is running
+- The pluggable database `XEPDB1` is available
+
+---
+
+## Database User Configuration
+
+Open a terminal and connect as administrator:
+
+```bash
+sqlplus / as sysdba
+```
+
+Switch to the pluggable database:
+
+```sql
+ALTER SESSION SET CONTAINER = XEPDB1;
+```
+
+Create the application user:
+
+```sql
+CREATE USER edu IDENTIFIED BY 1234;
+GRANT CONNECT, RESOURCE TO edu;
+ALTER USER edu QUOTA UNLIMITED ON USERS;
+```
+
+Exit SQL*Plus:
+
+```sql
+EXIT;
+```
+
+---
+
+## Running the Application
+
+### Windows
+
+```powershell
+git clone <repository-url>
+cd Sem3-Integrative-Project
+.\run.bat
+```
+
+The script will:
+
+- Validate the Java installation
+- Build the project using Maven Wrapper
+- Resolve all dependencies
+- Launch the application with preview features enabled
+
+---
+
+### macOS
+
+```bash
+git clone <repository-url>
+cd Sem3-Integrative-Project
+chmod +x mvnw
+./mvnw clean package -DskipTests
+```
+
+The application can then be executed using the generated artefacts.
+
+---
+
+## Notes
+
+- The application must be built using Java 23.
+- All build steps are performed via the command line.
+
 
 ---
 
