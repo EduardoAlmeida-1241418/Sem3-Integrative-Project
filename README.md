@@ -276,7 +276,7 @@ This project was developed with the collaboration of the following team:
 - [André Pinho](https://github.com/AndreSiPinho)
 - [Bianca Almeida](https://github.com/Brma505)
 - [Carlota Lemos](https://github.com/carlotalemos)
-- [Eduardo Almeida](https://github.com/EduardoAlmeida-1241418)
+- [Eduardo Almeida](https://github.com/EduardoAlmeida0301)
 - [Marcelo Carvalho](https://github.com/CarvalhoISEP)
 
 ---
